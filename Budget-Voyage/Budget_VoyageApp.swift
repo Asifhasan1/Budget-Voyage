@@ -16,7 +16,7 @@ struct Budget_VoyageApp: App {
             if isOnboarding {
                 OnBoardingView()
             } else {
-                CreateTripView()
+                SplashScreenView()
             }
         }
     }

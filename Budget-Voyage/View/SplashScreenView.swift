@@ -18,10 +18,13 @@ struct SplashScreenView: View {
         } else {
             
             ZStack {
-                Color.white
-                    .ignoresSafeArea()
+                Image("BackImg")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+                    
                 VStack {
-                    Image("Splash")
+                    Image("Logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 400, height: 400)
@@ -32,7 +35,7 @@ struct SplashScreenView: View {
                 .opacity(opacity)
                 .onAppear {
                     withAnimation(.easeInOut(duration: 1.2)) {
-                        self.size = 0.9
+                        self.size = 1.5
                         self.opacity = 1.0
                     }
                 }

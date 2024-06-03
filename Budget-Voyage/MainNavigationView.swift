@@ -8,32 +8,35 @@
 import SwiftUI
 
 struct MainNavigationView: View {
+    
+
     var body: some View {
-        
         NavigationStack {
             TabView {
-                    TripsView()
-                        .tabItem {
-                            Label("Trips", systemImage: "airplane")
-                        }
+                TripsView()
+                    .tabItem {
+                        Label("Trips", systemImage: "airplane")
+                            .tint(.white)
+                    }
 
-                    BudgetView()
-                        .tabItem {
-                            Label("Budget", systemImage: "dollarsign.square")
-                        }
+                BudgetView()
+                    .tabItem {
+                        Label("Budget", systemImage: "dollarsign.square")
+                    }
 
-                    ListsTripsView()
-                        .tabItem {
-                            Label("Lists", systemImage: "list.bullet")
-                        }
+                ListsTripsView()
+                    .tabItem {
+                        Label("Lists", systemImage: "list.bullet")
+                    }
             }
-        }
+            
         }
     }
-
-
+}
 
 #Preview {
     MainNavigationView()
 }
+
+
 

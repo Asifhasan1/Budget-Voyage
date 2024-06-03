@@ -17,17 +17,17 @@ struct PageView: View {
                 .scaledToFit()
                 .padding()
                 .cornerRadius(30)
-                .background(.gray.opacity(0.10))
                 .cornerRadius(10)
                 .padding()
             
             Text(page.name)
-                .font(.title)
+                .font(Font.custom("Hiragino Mincho ProN", size: 24))
+                .foregroundColor(.white)
             
             Text(page.description)
-                .font(.subheadline)
+                .font(Font.custom("Hiragino Mincho ProN", size: 18))
+                .foregroundColor(.white)
                 .frame(width: 300)
-            
         }
     }
 }
@@ -35,4 +35,5 @@ struct PageView: View {
 #Preview {
     PageView(page: Page.samplePage)
 }
+
 

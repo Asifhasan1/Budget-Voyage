@@ -23,22 +23,24 @@ struct OnBoardingView: View {
                     TabView(selection: $pageIndex) {
                         ForEach(pages) { page in
                             VStack {
-                                Spacer()
                                 PageView(page: page)
                                     .padding(.horizontal)
+                                    .foregroundColor(.white)
+                                    .font(Font.custom("Hiragino Mincho ProN", size: 18))
+                                
                                 Spacer()
                                 if page == pages.last {
                                     Button("Let's Get Started", action: {
                                         isCreateTripViewActive = true
                                         isOnboarding = false
                                     })
-                                    .buttonStyle(.bordered)
+                                    .font(Font.custom("Hiragino Mincho ProN", size: 20))
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color(hex: "BDC487"))
                                     .fullScreenCover(isPresented: $isCreateTripViewActive, content: {
                                         CreateTripView()
                                     })
-                                } else {
-                                    Spacer()
-                                    Button("Next", action: incrementPage)
                                 }
                             }
                             .tag(page.tag)
@@ -47,18 +49,24 @@ struct OnBoardingView: View {
                     .animation(.easeInOut, value: pageIndex)
                     .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-                    Spacer(minLength: 20)
                 }
                 .onAppear{
                     dotAppearance.currentPageIndicatorTintColor = .black
                     dotAppearance.pageIndicatorTintColor = .gray
                 }
                 .padding()
+                .background(Color(hex: "2F4F4F").edgesIgnoringSafeArea(.all))
                 .navigationTitle("")
             }
         } else {
             CreateTripView()
+            Image("BackImg")
+            .resizable()
+            .scaledToFill()
+            .edgesIgnoringSafeArea(.all)
         }
+        
+        
         
     }
     
@@ -72,5 +80,6 @@ struct ContentView_Previews: PreviewProvider {
         OnBoardingView()
     }
 }
+
 
 
